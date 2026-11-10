@@ -6,9 +6,9 @@ A small, all-open-source version of the pilot-to-tower pipeline. A pilot's trans
 
 | Reason in the code | What happened |
 |---|---|
-| `garbled` or `unclear_intent` | The transmission could not be understood (low Whisper confidence, or the LLM was unsure of the intent) |
+| `garbled`/`unclear_intent` | The transmission could not be understood (low Whisper confidence, or the LLM was unsure of the intent) <- can be tuned for the model to re-request pilot communication w/ 1 retry. |
 | `distress` | The LLM marked the call as urgency "red" (mayday, pan-pan) |
-| `low_confidence` | The drafted reply scored below the confidence threshold |
+| `low_confidence` | The drafted reply scored below the set confidence threshold |
 
 Escalated cases are saved in the `escalations` table and never written to the aircraft tracker.
 
@@ -17,7 +17,7 @@ Escalated cases are saved in the `escalations` table and never written to the ai
 | File | What it does |
 |---|---|
 | `pipeline.py` | The whole flow in order: understand the call, queue it (yellow before green), reply, send. Also holds the queue and the arbiter (sends only when the channel is free). **Start reading here.** |
-| `models.py` | Whisper, the Ollama LLM, and Kokoro, plus the shapes the LLM must answer in. The only file that touches models. |
+| `models.py` | Whisper, the Ollama LLM, and Kokoro, plus the structured outputs the LLMs must use. |
 | `database.py` | Everything that is saved: the event log, the callsign registry, the aircraft tracker, and the human operator's inbox. |
 | `config.py` | Model names, thresholds, folders. |
 | `live.py` | The live tower: waits for pilot calls and answers each one as it arrives. |
