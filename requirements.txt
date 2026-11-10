@@ -1,0 +1,8 @@
+pydantic
+ollama
+numpy
+faster-whisper
+kokoro
+soundfile
+apache-airflow
+pytest
