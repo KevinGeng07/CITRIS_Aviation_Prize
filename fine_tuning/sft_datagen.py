@@ -173,7 +173,8 @@ def generate_qa(client, model, source, max_pairs=3):
         model=model,
         messages=[{"role": "user", "content": prompt}],
         format="json",
-        options={'temperature': 0, 'num_ctx': 4096, 'think': False},
+        think=False,
+        options={'temperature': 0, 'num_ctx': 4096},
     )
 
     data = json.loads(response.message.content)
