@@ -23,6 +23,11 @@ until ollama list > /dev/null 2>&1; do sleep 2; done   # wait until the server i
 
 ollama pull gemma4:12b   # instant after the first time
 
-source $SCRATCH/CITRIS_Aviation_Prize/venvs/sft/bin/activate
+module load python   # so python3/venv are available on the compute node
+VENV=$SCRATCH/CITRIS_Aviation_Prize/venvs/sft
+[ -d "$VENV" ] || python3 -m venv "$VENV"     # create the venv on the first run
+source $VENV/bin/activate
 cd $SCRATCH/CITRIS_Aviation_Prize/fine_tuning
+pip install --quiet --upgrade pip
+pip install --quiet -r sft_requirements.txt  # no-op once everything is installed
 python sft_datagen.py --pdf data/7110.65BB_Bsc_w_Chg_1_2_and_3_dtd_7-9-26_Final.pdf
