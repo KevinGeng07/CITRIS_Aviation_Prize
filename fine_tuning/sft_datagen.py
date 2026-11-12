@@ -20,7 +20,6 @@ import random
 import re
 import sqlite3
 from pathlib import Path
-import subprocess
 
 import pymupdf
 from ollama import Client

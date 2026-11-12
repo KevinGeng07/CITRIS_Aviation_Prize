@@ -13,7 +13,7 @@
 SCRATCH=/global/scratch/users/$USER
 export PATH=$SCRATCH/ollama/bin:$PATH
 export OLLAMA_MODELS=$SCRATCH/ollama_models   # keep the 8 GB model out of your home folder
-export HF_HOME=$SCRATCH/hf_cache              # same for the embedding model
+export HF_HOME=$SCRATCH/CITRIS_Aviation_Prize/hf_cache              # same for the embedding model
 export OLLAMA_NUM_PARALLEL=3                  # this is where the server setting goes
 # Use a port of your own: other people's Ollama servers may be running on the same node.
 export OLLAMA_HOST=127.0.0.1:$((20000 + SLURM_JOB_ID % 10000))
@@ -23,6 +23,6 @@ until ollama list > /dev/null 2>&1; do sleep 2; done   # wait until the server i
 
 ollama pull gemma4:12b   # instant after the first time
 
-source $SCRATCH/venvs/sft/bin/activate
-cd $SCRATCH/fine_tuning
+source $SCRATCH/CITRIS_Aviation_Prize/venvs/sft/bin/activate
+cd $SCRATCH/CITRIS_Aviation_Prize/fine_tuning
 python sft_datagen.py --pdf data/7110.65BB_Bsc_w_Chg_1_2_and_3_dtd_7-9-26_Final.pdf

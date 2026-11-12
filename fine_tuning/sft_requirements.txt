@@ -1,0 +1,7 @@
+llama-index
+llama-index-embeddings-huggingface
+pymupdf
+datasets
+ollama
+peft
+trl
