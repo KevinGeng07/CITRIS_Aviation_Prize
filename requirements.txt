@@ -6,3 +6,7 @@ kokoro
 soundfile
 apache-airflow
 pytest
+llama-index
+llama-index-embeddings-huggingface
+pymupdf
+datasets

@@ -1,1 +1,5 @@
 FINE TUNE USING LoRA (https://arxiv.org/pdf/2106.09685)/QLoRA (https://arxiv.org/pdf/2305.14314)
+
+test Gemma 4 (https://ollama.com/library/gemma4) vs Qwen 3.5 (https://ollama.com/library/qwen3.5)
+
+python sft_datagen.py --pdf data/...pdf --model {MODEL_NAME}
