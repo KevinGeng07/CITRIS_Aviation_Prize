@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=sft_datagen
-#SBATCH --account=fc_YOURACCOUNT
+#SBATCH --account=fc_mixedav
 #SBATCH --partition=savio4_gpu
 #SBATCH --qos=a5k_gpu4_normal
 #SBATCH --nodes=1
