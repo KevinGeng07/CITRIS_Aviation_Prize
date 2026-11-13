@@ -5,3 +5,9 @@ datasets
 ollama
 peft
 trl
+torch
+transformers
+accelerate
+bitsandbytes
+sentencepiece
+protobuf
